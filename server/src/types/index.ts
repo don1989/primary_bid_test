@@ -1,21 +1,21 @@
 export interface IUrlPair {
-  longUrl: string;
-  shortUrl: string;
+    longUrl: string;
+    shortUrl: string;
 }
 
 export interface ICounter {
-  seq: number;
+    seq: number;
 }
 
 export interface IPostRequestBody {
-  longUrl: string;
+    longUrl: string;
 }
 
 export interface IPostResponseBody {
-  longUrl: string;
-  shortUrl: string;
+    longUrl: string;
+    shortUrl: string;
 }
 
 export interface IGetResponseBody {
-  urls: IUrlPair[];
+    urls: IUrlPair[];
 }

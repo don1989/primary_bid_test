@@ -3,39 +3,39 @@ import repository from '../db';
 import { IUrlPair } from 'types';
 
 const getUrls = async (): Promise<IUrlPair[]> => {
-  const urlPairs = await repository.getUrlPairs();
-  return urlPairs;
+    const urlPairs = await repository.getUrlPairs();
+    return urlPairs;
 };
 
 const postUrl = async (longUrl: string): Promise<IUrlPair> => {
-  if (!isValidHttpUrl(longUrl)) {
-    throw `Invalid long url: ${longUrl}`;
-  }
-
-  let shortUrl: string = '';
-  const existingPair = await repository.getUrlPair(longUrl);
-
-  if (existingPair) {
-    shortUrl = existingPair.shortUrl;
-  } else {
-    const count = await repository.getNextCount();
-    shortUrl = convertIdToShortUrl(count);
-
-    if (!isValidHttpUrl(shortUrl)) {
-      throw `Invalid short url: ${shortUrl}`;
+    if (!isValidHttpUrl(longUrl)) {
+        throw `Invalid long url: ${longUrl}`;
     }
-    await repository.storeUrlPair(longUrl, shortUrl);
-  }
 
-  return {
-    longUrl,
-    shortUrl,
-  };
+    let shortUrl: string = '';
+    const existingPair = await repository.getUrlPair(longUrl);
+
+    if (existingPair) {
+        shortUrl = existingPair.shortUrl;
+    } else {
+        const count = await repository.getNextCount();
+        shortUrl = convertIdToShortUrl(count);
+
+        if (!isValidHttpUrl(shortUrl)) {
+            throw `Invalid short url: ${shortUrl}`;
+        }
+        await repository.storeUrlPair(longUrl, shortUrl);
+    }
+
+    return {
+        longUrl,
+        shortUrl,
+    };
 };
 
 const MainProcessor = {
-  getUrls,
-  postUrl,
+    getUrls,
+    postUrl,
 };
 
 export default MainProcessor;
