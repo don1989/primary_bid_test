@@ -1,0 +1,8 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	min-width: 400px;
+	box-shadow: 2px 2px;
+	border: solid 2px blueviolet;
+	border-radius: 20px;
+}

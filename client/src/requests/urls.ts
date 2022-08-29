@@ -1,16 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
-import { UrlItem } from '../types';
+import { IGetResponseBody, IPostResponseBody } from '../types';
 
-const mainUrl = 'localhost:2027';
+const mainUrl = 'http://localhost:4000';
 
-export const getUrls = async (): Promise<AxiosResponse<UrlItem[]>> => {
-	const url = `${mainUrl}/urls`;
-	return axios.get(url);
+export const getUrls = async (): Promise<AxiosResponse<IGetResponseBody>> => {
+	return axios.get(mainUrl);
 };
 
 export const postUrl = async (
 	longUrl: string
-): Promise<AxiosResponse<void>> => {
-	const url = `${mainUrl}/url`;
-	return axios.post(url, longUrl);
+): Promise<AxiosResponse<IPostResponseBody>> => {
+	return axios.post(mainUrl, { longUrl });
 };

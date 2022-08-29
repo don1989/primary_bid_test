@@ -1,0 +1,24 @@
+.root {
+	display: flex;
+	border: 2px solid rgb(108, 99, 255);
+	max-width: 700px;
+	margin: 1px;
+}
+
+.image {
+	width: 50px;
+	height: 50px;
+}
+
+.item {
+	text-align: left;
+	width: 100%;
+}
+
+.short-url {
+	font-weight: bold;
+}
+
+.long-url {
+	color: green;
+}
