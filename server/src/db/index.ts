@@ -5,7 +5,7 @@ import { IUrlPair } from 'types';
 
 const dbName = process.env.MONGO_DB_NAME || 'testdb';
 
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose.connect(`mongodb://localhost:27017/${dbName}`);
 
 const getUrlPairs = async (): Promise<IUrlPair[]> => {
     const urlPairs = await UrlPair.find({}, { longUrl: 1, shortUrl: 1 }).sort({ createdAt: -1 });
