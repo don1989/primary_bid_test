@@ -8,7 +8,7 @@ const dbName = process.env.MONGO_DB_NAME || 'testdb';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const getUrlPairs = async (): Promise<IUrlPair[]> => {
-    const urlPairs = await UrlPair.find({}, { longUrl: 1, shortUrl: 1 });
+    const urlPairs = await UrlPair.find({}, { longUrl: 1, shortUrl: 1 }).sort({ createdAt: -1 });
     return urlPairs;
 };
 
@@ -34,7 +34,7 @@ const storeUrlPair = async (longUrl: string, shortUrl: string): Promise<void> =>
     await UrlPair.create({
         longUrl,
         shortUrl,
-        createAt: new Date(),
+        createdAt: new Date(),
     });
 };
 

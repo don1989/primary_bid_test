@@ -20,5 +20,10 @@
 }
 
 .long-url {
-	color: green;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	max-height: 3em;
 }

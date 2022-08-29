@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App 1`] = `
+<DocumentFragment>
+  <div
+    class="app"
+  >
+    <div
+      class="root"
+    >
+      <div>
+        <h2>
+          Enter long URL
+        </h2>
+        <input
+          type="text"
+          value=""
+        />
+        <button
+          disabled=""
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <div
+      class="list"
+    />
+  </div>
+</DocumentFragment>
+`;

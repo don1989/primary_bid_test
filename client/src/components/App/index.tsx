@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import styles from './index.module.css';
 import { getUrls } from '../../requests/urls';
 import { AxiosResponse } from 'axios';
 import { IGetResponseBody, IUrlPair } from '../../types';
@@ -26,7 +26,7 @@ function App() {
 
 	const renderUrlList = () => {
 		return (
-			<div className="List">
+			<div className={styles.list}>
 				{urlList.map((urlItem) => (
 					<ListItem key={urlItem.longUrl} urlPair={urlItem} />
 				))}
@@ -35,7 +35,7 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className={styles.app}>
 			<SubmissionBox onSubmitSuccess={refreshList} />
 			{renderUrlList()}
 		</div>

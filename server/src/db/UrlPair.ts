@@ -15,7 +15,7 @@ const urlPairSchema = new mongoose.Schema({
         immutable: true,
         minLength: defaultUrl.length + shortUrlLen,
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: () => Date.now(),
         immutable: true,
