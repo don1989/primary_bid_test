@@ -8,7 +8,7 @@ describe('ListItem', () => {
 		const urlPair: IUrlPair = {
 			longUrl:
 				'https://testing-library.com/docs/react-testing-library/api/',
-			shortUrl: 'https://pb.io/hsda9d33',
+			shortUrl: 'https://pbid.io/hsda9d33',
 		};
 
 		const { asFragment, getByText } = render(
@@ -22,7 +22,7 @@ describe('ListItem', () => {
 	test('returns null for invalid list item', () => {
 		const urlPair: IUrlPair = {
 			longUrl: '',
-			shortUrl: 'https://pb.io/hsda9d33',
+			shortUrl: 'https://pbid.io/hsda9d33',
 		};
 
 		const { asFragment } = render(<ListItem urlPair={urlPair} />);

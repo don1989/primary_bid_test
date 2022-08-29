@@ -17,11 +17,11 @@ exports[`ListItem renders a list item 1`] = `
         class="short-url"
       >
         <a
-          href="https://pb.io/hsda9d33"
+          href="https://pbid.io/hsda9d33"
           rel="noreferrer"
           target="_blank"
         >
-          https://pb.io/hsda9d33
+          https://pbid.io/hsda9d33
         </a>
       </div>
       <div

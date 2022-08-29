@@ -1,4 +1,4 @@
-export const defaultUrl = 'https://pb.io/';
+export const defaultUrl = 'https://pbid.io/';
 export const shortUrlLen = 8;
 
 const alphabet = '0123456789abcdefghijklmnopqrstuvwxyz';
