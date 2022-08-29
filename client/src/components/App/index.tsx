@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { getUrls } from './requests/urls';
+import { getUrls } from '../../requests/urls';
 import { AxiosResponse } from 'axios';
-import { IGetResponseBody, IUrlPair } from './types';
-import ListItem from './components/ListItem';
-import SubmissionBox from './components/SubmissionBox';
+import { IGetResponseBody, IUrlPair } from '../../types';
+import ListItem from '../ListItem';
+import SubmissionBox from '../SubmissionBox';
 
 function App() {
 	const [urlList, setUrlList] = useState<IUrlPair[]>([]);
@@ -26,7 +26,7 @@ function App() {
 
 	const renderUrlList = () => {
 		return (
-			<div>
+			<div className="List">
 				{urlList.map((urlItem) => (
 					<ListItem key={urlItem.longUrl} urlPair={urlItem} />
 				))}

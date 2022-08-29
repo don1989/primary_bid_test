@@ -1,0 +1,14 @@
+.App {
+	display: flex;
+	text-align: center;
+	justify-content: space-evenly;
+	padding: 24px;
+	width: calc(100% - 48px);
+	height: calc(100% - 48px);
+}
+
+.List {
+	width: 600px;
+	height: 100%;
+	overflow-y: auto;
+}

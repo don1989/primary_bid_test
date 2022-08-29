@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem renders a list item 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <img
+      alt="logo"
+      class="image"
+      src="logo.svg"
+    />
+    <div
+      class="item"
+    >
+      <div
+        class="short-url"
+      >
+        <a
+          href="https://pb.io/hsda9d33"
+          rel="noreferrer"
+          target="_blank"
+        >
+          https://pb.io/hsda9d33
+        </a>
+      </div>
+      <div
+        class="long-url"
+      >
+        <a
+          href="https://testing-library.com/docs/react-testing-library/api/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          https://testing-library.com/docs/react-testing-library/api/
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ListItem returns null for invalid list item 1`] = `<DocumentFragment />`;

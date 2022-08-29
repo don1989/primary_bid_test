@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmissionBox renders a list item 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <div>
+      <h2>
+        Enter long URL
+      </h2>
+      <input
+        type="text"
+        value=""
+      />
+      <button
+        disabled=""
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

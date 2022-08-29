@@ -12,9 +12,10 @@ const SubmissionBox = ({ onSubmitSuccess }: Props) => {
 	const [url, setUrl] = useState<string>('');
 	const [didSubmit, setDidSubmit] = useState<boolean>(false);
 	const [shortUrl, setShortUrl] = useState<string>('');
+	const [didCopy, setDidCopy] = useState<boolean>(false);
+	const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
 
 	const handleSubmit = () => {
-		console.log('submit clicked');
 		setDidSubmit(true);
 
 		postUrl(url)
@@ -36,6 +37,15 @@ const SubmissionBox = ({ onSubmitSuccess }: Props) => {
 
 	const handleCopyToClipboard = () => {
 		navigator.clipboard.writeText(shortUrl);
+		setDidCopy(true);
+		if (timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		const id = setTimeout(() => {
+			setDidCopy(false);
+			setTimeoutId(undefined);
+		}, 4000);
+		setTimeoutId(id);
 	};
 
 	const handleReset = () => {
@@ -68,6 +78,8 @@ const SubmissionBox = ({ onSubmitSuccess }: Props) => {
 						<button onClick={handleReset}>Shorten Another</button>
 					</div>
 				)}
+
+				{didCopy && <div>Copied to clipboard</div>}
 			</div>
 		</div>
 	);
