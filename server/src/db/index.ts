@@ -1,11 +1,12 @@
-import mongoose from 'mongoose';
+import { connect } from 'mongoose';
 import UrlPair from './UrlPair';
 import Counter from './Counter';
 import { IUrlPair } from 'types';
 
-const dbName = process.env.MONGO_DB_NAME || 'testdb';
-
-mongoose.connect(`mongodb://localhost:27017/${dbName}`);
+const connectDb = async() => {
+    const connectionString = process.env.MONGO_DB_CONNECTION || 'mongodb://localhost:27017/testdb'
+    await connect(connectionString);
+}
 
 const getUrlPairs = async (): Promise<IUrlPair[]> => {
     const urlPairs = await UrlPair.find({}, { longUrl: 1, shortUrl: 1 }).sort({ createdAt: -1 });
@@ -39,6 +40,8 @@ const storeUrlPair = async (longUrl: string, shortUrl: string): Promise<void> =>
 };
 
 const repository = {
+    connectDb,
+
     getUrlPairs,
     getUrlPair,
     getNextCount,

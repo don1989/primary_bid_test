@@ -34,6 +34,7 @@ const postUrl = async (longUrl: string): Promise<IUrlPair> => {
 };
 
 const MainProcessor = {
+    connectDb: repository.connectDb,
     getUrls,
     postUrl,
 };

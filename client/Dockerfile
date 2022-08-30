@@ -1,24 +1,13 @@
-# Common build stage
-FROM node:14.14.0-alpine3.12 as common-build-stage
-
-COPY . ./app
-
-WORKDIR /app
-
+FROM node:14.9
+ 
+WORKDIR /usr/src/app
+ 
+COPY package*.json ./
+ 
 RUN npm install
-
+ 
+COPY . .
+ 
 EXPOSE 3000
-
-# Development build stage
-FROM common-build-stage as development-build-stage
-
-ENV NODE_ENV development
-
-CMD ["npm", "run", "start"]
-
-# Production build stage
-FROM common-build-stage as production-build-stage
-
-ENV NODE_ENV production
-
-CMD ["npm", "run", "build"]
+ 
+CMD [ "npm", "start" ]

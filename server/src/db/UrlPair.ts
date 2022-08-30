@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import { Schema, model  } from 'mongoose';
 import { defaultUrl, shortUrlLen } from '../utils';
 
-const urlPairSchema = new mongoose.Schema({
+const urlPairSchema = new Schema({
     longUrl: {
         type: String,
         required: true,
@@ -22,5 +22,5 @@ const urlPairSchema = new mongoose.Schema({
     },
 });
 
-const UrlPair = mongoose.model('urlpairs', urlPairSchema);
+const UrlPair = model('urlpairs', urlPairSchema);
 export default UrlPair;

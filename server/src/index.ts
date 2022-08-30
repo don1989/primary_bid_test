@@ -8,7 +8,7 @@ import { IGetResponseBody, IPostRequestBody, IPostResponseBody } from 'types';
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(helmet());
@@ -50,4 +50,9 @@ app.post('/', (req: Request, res: Response) => {
 
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
+    MainController.connectDb().then(()=>{
+        console.log(`⚡️[server]: Mongodb connected`);
+    }).catch((err)=>{
+        console.error('Failed to connect to mongo db', err)
+    })
 });

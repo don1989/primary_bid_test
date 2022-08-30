@@ -1,29 +1,35 @@
 version: '3'
 services:
-    mongo-db-server:
+    mongo:
         image: mongo
         ports:
             - '27017:27017'
     server:
+        container_name: server
         build: ./server
         ports:
             - '4000:4000'
+        stdin_open: true
         volumes:
-            - '.:/app'
-            - '/app/node_modules'
+            - '.:/usr/app/'
+            - '/usr/app/node_modules'
         environment:
             - NODE_ENV=production
-            - MONGO_DB_NAME=testdb
+            - MONGO_DB_CONNECTION=mongodb://mongo:27017/testdb
+        command: npm start
         depends_on:
-            - mongo-db-server
+            - mongo
     client:
+        container_name: client
         build: ./client
+        volumes:
+            - '.:/usr/app'
+            - '/usr/app/node_modules'
         ports:
             - '3000:3000'
+        stdin_open: true
         environment:
             - NODE_ENV=production
-        volumes:
-            - '.:/app'
-            - '/app/node_modules'
+        command: npm start
         depends_on:
             - server
